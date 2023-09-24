@@ -1,11 +1,12 @@
 import React from 'react';
 
-const Button = ({ label, iconURL, backgroundColor, textColor, borderColor, fullWidth }) => {
+const Button = ({ label, iconURL, backgroundColor, textColor, borderColor, fullWidth, onClick }) => {
+  
   return (
-     <button
-  className={`
-    flex justify-center items-center gap-2 px-7 py-4 border font-montserrat text-lg leading-none
-    ${
+    <button
+      onClick={onClick}
+      className={`flex justify-center items-center gap-2 px-7 py-4 border font-montserrat text-lg leading-none
+      ${
       backgroundColor
         ? `${backgroundColor} ${textColor} ${borderColor}`
         : "bg-[#1bfd9c] text-[#1bfd9c] border-[#1bfd9c]"

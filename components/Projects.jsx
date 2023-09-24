@@ -1,14 +1,32 @@
+"use client";
 import React from 'react'
 import Image from 'next/image'
 import Button from './Button'
+import { motion } from "framer-motion";
+import { useInView } from 'react-intersection-observer';
+
+
 
 const Projects = () => {
+  const [ref, inView] = useInView({
+   threshold: 0.1,
+  });
   return (
       <section
           id='projects'
           className='w-full max-container xl:w-4/5 max-xl:padding-x'
+    >
+      <motion.div
+        ref={ref}
+        className="card-container"
+        initial={{ y: 300, opacity: 0 }}
+        animate={{ y: inView ? 50 : 300, opacity: inView ? 1 : 0 }}
+        transition={{ type: "easeInOutQuart", duration: 0.8 }}
+        viewport={{ amount: 0.8 }}
+      >
+        <motion.div
+         
         >
-          <div>
               <h1 className='text-white text-4xl font-montserrat font-black'>
                   My<span className='text-[#1bfd9c]'> Projects</span>
               </h1>
@@ -50,7 +68,8 @@ const Projects = () => {
               />
               </div>
               </div>
-              </div>
+        </motion.div>
+        </motion.div>
     </section>
   )
 }

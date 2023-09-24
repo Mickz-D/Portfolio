@@ -2,6 +2,7 @@
 import Image from "next/image"
 import { useState } from "react";
 
+
 const Nav = () => {
    const [isMenuOpen, setIsMenuOpen] = useState(false);
 

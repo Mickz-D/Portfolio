@@ -1,14 +1,30 @@
+"use client";
 import React from 'react'
 import Image from 'next/image'
+import { motion } from "framer-motion";
+import { useInView } from 'react-intersection-observer';
+
+
 
 const About = () => {
+   const [ref, inView] = useInView({
+   threshold: 0.1, 
+  });
   return (
-      <section
+      <motion.section
           id="about"
-          className='w-full max-container xl:w-4/5 max-xl:padding-x'
+          className='w-full max-container xl:w-4/5 max-xl:padding-x pt-11 pb-11 mt-11 mb-11'
+          ref={ref}
+          initial={{ y: 300, opacity: 0 }}
+          animate={{ y: inView ? 50 : 300, opacity: inView ? 1 : 0 }}
+          transition={{ type: "easeInOutQuart", duration: 0.8 }}
+          viewport={{ amount: 0.8 }}
       >
-          <div className='flex flex-col md:flex-col lg:flex-row mt-10'>   
-              <div className='pt-28 lg:basis-1/2'>
+      <div
+          className='flex flex-col md:flex-col lg:flex-row mt-10'
+          
+      >   
+        <div className='pt-28 lg:basis-1/2'>
                 <h1 className='text-white text-4xl font-montserrat font-black'>
                     About
                     <span className='text-[#1bfd9c]'> Me</span>
@@ -29,7 +45,9 @@ const About = () => {
                 />
         </div>
       </div>
-      <div className='flex flex-col-reverse md:flex-col-reverse lg:flex-row mt-10'>
+      <div
+          className='flex flex-col-reverse md:flex-col-reverse lg:flex-row mt-10'>
+        
          <div className='pt-28 lg:basis-1/2'>
                 <Image
                     src="/assets/skillsImg/goals.png"
@@ -55,7 +73,7 @@ const About = () => {
                   </p>
               </div>
       </div>
-    </section>
+    </motion.section>
   )
 }
 
