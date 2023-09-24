@@ -18,7 +18,6 @@ const Projects = () => {
     >
       <motion.div
         ref={ref}
-        className="card-container"
         initial={{ y: 300, opacity: 0 }}
         animate={{ y: inView ? 50 : 300, opacity: inView ? 1 : 0 }}
         transition={{ type: "easeInOutQuart", duration: 0.8 }}
