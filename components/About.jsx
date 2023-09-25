@@ -32,7 +32,7 @@ const About = () => {
                   <p className='text-[#cbd5e1] pt-8'>
                       Meet a budding web developer with a knack for Next.js,
                       Tailwind CSS, WordPress, and Webflow. While new to the
-                      field, their passion and skills show great promise for
+                      field, my passion and skills show great promise for
                       creating engaging and stylish websites.
                   </p>
               </div>
